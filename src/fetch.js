@@ -25,4 +25,15 @@ async function getMovies(value) {
   }
 }
 
-export { getTrendingMovies, getMovies };
+async function getMovieBiId(id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}?api_key=${KEY}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export { getTrendingMovies, getMovies, getMovieBiId };

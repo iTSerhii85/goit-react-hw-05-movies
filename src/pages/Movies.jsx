@@ -1,5 +1,4 @@
-// import { Link } from "react-router-dom"
-import { SearchMovieList } from "components/SearchMovieList";
+import { MovieList } from "components/movieList/MovieList";
 import { getMovies } from "fetch";
 import { useState } from "react";
 
@@ -17,7 +16,7 @@ export const Movies =()=> {
             // toast.info('enter something!!!')
             return;
           };
-          getMovies(inputValue).then(data => setSearchMovies(data)).then(console.log(searchMovies))
+          getMovies(inputValue).then(data => setSearchMovies(data))
           .finally(setInputValue(''));
     }
 
@@ -33,7 +32,7 @@ export const Movies =()=> {
                   onChange = {handleChange} />
                 <button type="submit">Search</button>
             </form>
-            {searchMovies !=='' && <SearchMovieList movies={searchMovies}/>}
+            {searchMovies !=='' && <MovieList movies={searchMovies}/>}
         </main>
     )
 }
