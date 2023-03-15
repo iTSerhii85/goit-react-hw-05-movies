@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { getTrendingMovies } from "fetch";
-import { MovieList } from "components/movieList/MovieList";
+import { useEffect, useState } from 'react';
+import { getTrendingMovies } from 'fetch';
+import { MovieList } from 'components/movieList/MovieList';
 
 export const Home = () => {
-    const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
-    useEffect(() => {
-        getTrendingMovies().then(data => setMovies(data))
-    }, []);
+  useEffect(() => {
+    getTrendingMovies().then(data => setMovies(data));
+  }, []);
 
-    return (
-      <main>
-        <h1>Trending today</h1>
-          <MovieList movies ={movies} />
-      </main>
-    );
-  };
+  return (
+    <main>
+      <h1>Trending today</h1>
+      {movies && <MovieList movies={movies} url={'movies/'} />}
+    </main>
+  );
+};

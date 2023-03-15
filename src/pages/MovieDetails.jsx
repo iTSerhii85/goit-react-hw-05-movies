@@ -5,15 +5,12 @@ import { Link, Outlet, useParams } from "react-router-dom";
 
 export const MovieDetails =()=>{
     const [movie, setMovie] = useState(null);
-
     const { movieId } = useParams();
 
     useEffect(() => {
-        getMovieBiId(movieId).then(data => setMovie(data))
-    
-        return () => {
-            getMovieBiId(movieId);
-        }
+        getMovieBiId(movieId).then(data => setMovie(data));
+
+        return function cleanup() {getMovieBiId(movieId)}
     }, [movieId]);
 
     return(
