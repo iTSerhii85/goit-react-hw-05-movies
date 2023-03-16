@@ -1,25 +1,31 @@
-import { AboutMovie } from "components/aboutMovie/AboutMovie";
-import { getMovieBiId } from "fetch";
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { AboutMovie } from 'components/aboutMovie/AboutMovie';
+import { getMovieBiId } from 'fetch';
+import { useEffect, useState } from 'react';
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { Suspense } from 'react';
 
-export const MovieDetails =()=>{
-    const [movie, setMovie] = useState(null);
-    const { movieId } = useParams();
+const MovieDetails = () => {
+  const [movie, setMovie] = useState(null);
+  const { movieId } = useParams();
 
-    useEffect(() => {
-        getMovieBiId(movieId).then(data => setMovie(data));
+  useEffect(() => {
+    getMovieBiId(movieId).then(data => setMovie(data));
 
-        return function cleanup() {getMovieBiId(movieId)}
-    }, [movieId]);
+    return function cleanup() {
+      getMovieBiId(movieId);
+    };
+  }, [movieId]);
 
-    return(
-        <>
-         {movie && <AboutMovie movie={movie}/>}
-         <Link to="cast">Cast</Link>
-         <br />
-         <Link to="reviews">Reviews</Link>
-         <Outlet/>
-        </>
-    )
-}
+  return (
+    <>
+      {movie && <AboutMovie movie={movie} />}
+      <Link to="cast">Cast</Link>
+      <br />
+      <Link to="reviews">Reviews</Link>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </>
+  );
+};
+export default MovieDetails;

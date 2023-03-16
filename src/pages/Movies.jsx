@@ -2,7 +2,7 @@ import { MovieList } from 'components/movieList/MovieList';
 import { getMovies } from 'fetch';
 import { useState } from 'react';
 
-export const Movies = () => {
+const MoviesPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [searchMovies, setSearchMovies] = useState('');
 
@@ -34,3 +34,4 @@ export const Movies = () => {
     </main>
   );
 };
+export default MoviesPage;

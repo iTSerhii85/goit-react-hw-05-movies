@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'fetch';
 import { MovieList } from 'components/movieList/MovieList';
 
-export const Home = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
@@ -16,3 +16,4 @@ export const Home = () => {
     </main>
   );
 };
+export default HomePage;
