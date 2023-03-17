@@ -1,8 +1,15 @@
-import { Wrapper } from './AboutMovie.style';
+import { useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { BackButton, Wrapper } from './AboutMovie.style';
 
 export const AboutMovie = ({ movie }) => {
+  const location = useLocation();
+  const backLocation = useRef(location.state?.from ?? '/movies');
   return (
     <>
+      <Link to={backLocation.current}>
+        <BackButton>Go back</BackButton>
+      </Link>
       <Wrapper>
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

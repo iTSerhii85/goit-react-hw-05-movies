@@ -4,7 +4,7 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 // import { Cast } from './cast/Cast';
 import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout';
+import { Layout } from './layout/Layout';
 // import { Reviews } from './reviews/Reviews';
 
 const HomePage = lazy(() => import('pages/Home'));

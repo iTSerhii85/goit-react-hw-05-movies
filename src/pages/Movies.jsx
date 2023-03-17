@@ -1,35 +1,35 @@
 import { MovieList } from 'components/movieList/MovieList';
+import { SearchForm } from 'components/searchForm/SearchForm';
 import { getMovies } from 'fetch';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useSearchParams('');
+  const searchValue = inputValue.get('query') ?? '';
   const [searchMovies, setSearchMovies] = useState('');
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    if (inputValue.trim() === '') {
+  const updateQueryString = evt => {
+    console.log(evt);
+    const nextParams = evt !== '' ? { query: evt } : {};
+    setInputValue(nextParams);
+  };
+
+  useEffect(() => {
+    if (searchValue.trim() === '') {
       // toast.info('enter something!!!')
       return;
     }
-    getMovies(inputValue)
-      .then(data => setSearchMovies(data))
-      .finally(setInputValue(''));
-  };
+    getMovies(searchValue.trim()).then(data => setSearchMovies(data));
+
+    return function cleanUp() {
+      getMovies(searchValue.trim());
+    };
+  }, [searchValue]);
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search movies"
-          value={inputValue}
-          onChange={evt => setInputValue(evt.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <SearchForm onSubmit={updateQueryString} placeholder={searchValue} />
       {searchMovies !== '' && <MovieList movies={searchMovies} url={''} />}
     </main>
   );
