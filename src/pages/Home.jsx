@@ -10,10 +10,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main>
+    <>
       <h1>Trending today</h1>
       {movies && <MovieList movies={movies} url={'movies/'} />}
-    </main>
+    </>
   );
 };
 export default HomePage;
