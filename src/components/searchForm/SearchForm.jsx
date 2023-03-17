@@ -15,7 +15,7 @@ export const SearchForm = ({ onSubmit, placeholder }) => {
         type="text"
         autoComplete="off"
         autoFocus
-        placeholder={placeholder}
+        placeholder={placeholder === '' ? 'Enter movie name' : placeholder}
         value={searchInputValue}
         onChange={e => setSearchInputValue(e.target.value)}
       />
