@@ -6,7 +6,9 @@ import { Suspense } from 'react';
 import { Wrapper } from './MovieDetails.styled';
 
 const setActive = ({ isActive }) =>
-  isActive ? { color: 'orange' } : { color: 'black' };
+  isActive
+    ? { color: 'orange', borderBottom: '4px solid orange' }
+    : { color: 'black' };
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -21,9 +23,10 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <>
+    <main>
       {movie && <AboutMovie movie={movie} />}
       <Wrapper>
+        <h3>Additional information:</h3>
         <NavLink to="cast" style={setActive}>
           Cast
         </NavLink>
@@ -34,7 +37,7 @@ const MovieDetails = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </>
+    </main>
   );
 };
 export default MovieDetails;

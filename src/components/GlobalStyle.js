@@ -9,6 +9,7 @@ html {
 
 #root {
   height: 100%;
+  position: relative;
 }
 
 body {
@@ -19,6 +20,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  margin-top: 30px;
 }
 
 code {

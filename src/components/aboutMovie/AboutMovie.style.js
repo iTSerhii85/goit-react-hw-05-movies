@@ -16,3 +16,7 @@ export const BackButton = styled.div`
   font-size: medium;
   font-weight: bolder;
 `;
+
+export const Img = styled.img`
+  box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.75);
+`;

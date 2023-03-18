@@ -36,4 +36,32 @@ async function getMovieBiId(id) {
   }
 }
 
-export { getTrendingMovies, getMovies, getMovieBiId };
+async function getCastBiId(id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}/credits?api_key=${KEY}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function getReviewsBiId(id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}/reviews?api_key=${KEY}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export {
+  getTrendingMovies,
+  getMovies,
+  getMovieBiId,
+  getCastBiId,
+  getReviewsBiId,
+};

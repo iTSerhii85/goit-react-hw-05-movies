@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 10px;
   border-bottom: 2px solid gray;
   box-shadow: 1px 12px 14px 0px rgba(0, 0, 0, 0.68);
   -webkit-box-shadow: 1px 12px 14px 0px rgba(0, 0, 0, 0.68);
   -moz-box-shadow: 1px 12px 14px 0px rgba(0, 0, 0, 0.68);
   margin-bottom: 20px;
+  z-index: 100;
+  background-color: #ffffff;
 `;
 
 export const Nav = styled.nav`
@@ -18,6 +23,7 @@ export const Nav = styled.nav`
 `;
 
 export const Footer = styled.footer`
+  width: 100%;
   margin-top: 30px;
   padding: 10px;
   border-top: 2px solid gray;

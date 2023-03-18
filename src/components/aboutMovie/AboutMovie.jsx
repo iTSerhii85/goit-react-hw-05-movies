@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BackButton, Wrapper } from './AboutMovie.style';
+import { BackButton, Img, Wrapper } from './AboutMovie.style';
 
 export const AboutMovie = ({ movie }) => {
   const location = useLocation();
@@ -11,7 +11,7 @@ export const AboutMovie = ({ movie }) => {
         <BackButton>Go back</BackButton>
       </Link>
       <Wrapper>
-        <img
+        <Img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
           width={300}

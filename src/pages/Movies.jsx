@@ -10,7 +10,6 @@ const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState('');
 
   const updateQueryString = evt => {
-    console.log(evt);
     const nextParams = evt !== '' ? { query: evt } : {};
     setInputValue(nextParams);
   };
@@ -28,10 +27,10 @@ const MoviesPage = () => {
   }, [searchValue]);
 
   return (
-    <>
+    <main>
       <SearchForm onSubmit={updateQueryString} placeholder={searchValue} />
       {searchMovies !== '' && <MovieList movies={searchMovies} url={''} />}
-    </>
+    </main>
   );
 };
 export default MoviesPage;
