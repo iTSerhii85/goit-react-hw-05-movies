@@ -14,12 +14,17 @@ async function getTrendingMovies() {
   }
 }
 
-async function getMovies(value) {
+async function getMovies(value, p) {
   try {
-    const response = await axios.get(
-      `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${value}&page=1&include_adult=false`
-    );
-    return response.data.results;
+    const response = await axios.get(`${BASE_URL}search/movie`, {
+      params: {
+        api_key: `${KEY}`,
+        query: `${value}`,
+        page: `${p}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }

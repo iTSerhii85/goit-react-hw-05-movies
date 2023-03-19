@@ -1,4 +1,4 @@
-import { getCastBiId } from 'fetch';
+import { getCastBiId } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Ul } from './Cast.style';

@@ -1,5 +1,5 @@
 import { AboutMovie } from 'components/aboutMovie/AboutMovie';
-import { getMovieBiId } from 'fetch';
+import { getMovieBiId } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { Suspense } from 'react';
@@ -15,6 +15,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    document.title = `About movie`;
     getMovieBiId(movieId).then(data => setMovie(data));
 
     return function cleanup() {

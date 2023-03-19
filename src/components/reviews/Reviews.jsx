@@ -1,4 +1,4 @@
-import { getReviewsBiId } from 'fetch';
+import { getReviewsBiId } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Li, Ul } from './Reviews.style';

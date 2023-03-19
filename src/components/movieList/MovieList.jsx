@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Card, Ul } from './MovieList.style';
 import image from 'img/no-image.jpg';
 
-export const MovieList = ({ movies, url }) => {
+export const MovieList = ({ movies, url, loadMore }) => {
   const location = useLocation();
 
   return (
