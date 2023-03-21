@@ -18,9 +18,11 @@ const Cast = () => {
     };
   }, [movieId]);
 
-  if (cast.length !== 0) {
-    return (
-      <>
+  return (
+    <>
+      {cast.length === 0 ? (
+        <h3>We don't have any casts for this movie!</h3>
+      ) : (
         <Ul>
           {cast.map(actor => (
             <Card key={actor.id}>
@@ -38,8 +40,8 @@ const Cast = () => {
             </Card>
           ))}
         </Ul>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 };
 export default Cast;
