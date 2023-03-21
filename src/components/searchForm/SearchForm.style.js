@@ -1,10 +1,20 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  position: fixed;
-  top: 10px;
-  left: 500px;
-  z-index: 1000;
+  /* position: relative; */
+  margin-left: 30px;
+
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-30%);
+    z-index: 1000;
+  }
+
+  @media screen and (min-width: 1280px) {
+    transform: translateX(-30%);
+  }
 `;
 
 export const Button = styled.button`
