@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BackButton, Img, Wrapper } from './AboutMovie.style';
@@ -38,4 +39,8 @@ export const AboutMovie = ({ movie }) => {
       </Wrapper>
     </>
   );
+};
+
+AboutMovie.propTypes = {
+  movie: PropTypes.object.isRequired,
 };

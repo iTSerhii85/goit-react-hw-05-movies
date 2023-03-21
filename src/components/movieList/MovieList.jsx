@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { Card, Ul } from './MovieList.style';
 import image from 'img/no-image.jpg';
@@ -30,4 +31,9 @@ export const MovieList = ({ movies, url }) => {
       ))}
     </Ul>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+  url: PropTypes.string,
 };
