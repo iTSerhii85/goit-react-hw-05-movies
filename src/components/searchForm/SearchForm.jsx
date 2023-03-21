@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, Form, Input } from 'components/searchForm/SearchForm.style';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,8 +27,8 @@ export const SearchForm = ({ onSubmit, placeholder }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="text"
           autoComplete="off"
           autoFocus
@@ -35,8 +36,8 @@ export const SearchForm = ({ onSubmit, placeholder }) => {
           value={searchInputValue}
           onChange={e => setSearchInputValue(e.target.value)}
         />
-        <button type="submit">Search</button>
-      </form>
+        <Button type="submit">Search</Button>
+      </Form>
       <ToastContainer
         position="top-center"
         autoClose={3000}

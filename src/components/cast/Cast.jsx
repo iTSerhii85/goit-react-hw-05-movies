@@ -7,7 +7,7 @@ import image from 'img/no-image.jpg';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 const Cast = () => {
-  const [cast, setCast] = useState('');
+  const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Cast = () => {
     };
   }, [movieId]);
 
-  if (cast !== '') {
+  if (cast.length !== 0) {
     return (
       <>
         <Ul>

@@ -23,7 +23,6 @@ async function getMovies(value, p) {
         page: `${p}`,
       },
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);

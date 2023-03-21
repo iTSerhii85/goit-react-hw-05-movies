@@ -2,17 +2,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Card, Ul } from './MovieList.style';
 import image from 'img/no-image.jpg';
 
-export const MovieList = ({ movies, url, loadMore }) => {
+export const MovieList = ({ movies, url }) => {
   const location = useLocation();
 
   return (
     <Ul>
-      {movies.map(movie => (
-        <Link
-          to={`${url}${movie.id}`}
-          key={movie.id}
-          state={{ from: location }}
-        >
+      {movies.map((movie, index) => (
+        <Link to={`${url}${movie.id}`} key={index} state={{ from: location }}>
           <Card>
             <div>
               {movie.poster_path ? (

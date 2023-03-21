@@ -3,8 +3,9 @@ import { getMovieBiId } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Wrapper } from './MovieDetails.styled';
+import { LinkWrapper, Wrapper } from './MovieDetails.styled';
 import ContentLoader from 'react-content-loader';
+import { BiCaretDown } from 'react-icons/bi';
 
 const setActive = ({ isActive }) =>
   isActive
@@ -49,12 +50,16 @@ const MovieDetails = () => {
       )}
       <Wrapper>
         <h3>Additional information:</h3>
-        <NavLink to="cast" style={setActive}>
-          Cast
-        </NavLink>
-        <NavLink to="reviews" style={setActive}>
-          Reviews
-        </NavLink>
+        <LinkWrapper>
+          <NavLink to="cast" style={setActive}>
+            <BiCaretDown />
+            Cast
+          </NavLink>
+          <NavLink to="reviews" style={setActive}>
+            <BiCaretDown />
+            Reviews
+          </NavLink>
+        </LinkWrapper>
       </Wrapper>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

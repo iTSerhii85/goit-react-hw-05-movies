@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+// import image from 'img/no-image.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -20,10 +21,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #d9ebe9;
 }
 
 main {
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
 code {

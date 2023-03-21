@@ -12,7 +12,7 @@ export const Card = styled.li`
   max-width: 200px;
   height: 330px;
   padding: 10px;
-  background-color: #aed6f1;
+  background-color: #82d1e2;
   border-radius: 5px;
   box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.75);
 

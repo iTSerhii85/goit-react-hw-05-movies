@@ -4,7 +4,7 @@ export const Header = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border-bottom: 2px solid gray;
   box-shadow: 1px 12px 14px 0px rgba(0, 0, 0, 0.68);
   -webkit-box-shadow: 1px 12px 14px 0px rgba(0, 0, 0, 0.68);
@@ -23,6 +23,7 @@ export const Nav = styled.nav`
 `;
 
 export const Footer = styled.footer`
+  background-color: #ffffff;
   width: 100%;
   margin-top: 30px;
   padding: 10px;
@@ -64,4 +65,44 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   flex: 1 1 auto;
+`;
+
+export const Loader = styled.span`
+  margin-top: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  font-size: 48px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #d6e0ff;
+  letter-spacing: 2px;
+  position: relative;
+  box-sizing: border-box;
+
+  &::after {
+    content: 'Loading';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #263238;
+    text-shadow: 0 0 2px #fff, 0 0 1px #fff, 0 0 1px #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite;
+  }
+
+  @keyframes animloader {
+    0% {
+      height: 100%;
+    }
+
+    100% {
+      height: 0%;
+    }
+  }
 `;

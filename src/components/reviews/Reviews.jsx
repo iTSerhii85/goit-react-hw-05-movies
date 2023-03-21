@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Li, Ul } from './Reviews.style';
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState('');
+  const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -15,9 +15,11 @@ const Reviews = () => {
     };
   }, [movieId]);
 
-  if (reviews !== '') {
-    return (
-      <>
+  return (
+    <>
+      {reviews.length === 0 ? (
+        <h3>We don't have any reviews for this movie!</h3>
+      ) : (
         <Ul>
           {reviews.map(review => (
             <Li key={review.id}>
@@ -26,8 +28,8 @@ const Reviews = () => {
             </Li>
           ))}
         </Ul>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 };
 export default Reviews;

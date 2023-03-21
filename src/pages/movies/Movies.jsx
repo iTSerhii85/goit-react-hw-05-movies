@@ -27,9 +27,9 @@ const MoviesPage = () => {
       getMovies(searchValue.trim(), currentPage)
         .then(data => {
           setSearchMovies(prevState => [...prevState, ...data.results]);
-          setCurrentPage(prevState => prevState + 1);
           setTotalPages(data.total_pages);
         })
+        .then(setCurrentPage(prevState => prevState + 1))
         .finally(setFetched(false));
       setLoading(false);
     }
