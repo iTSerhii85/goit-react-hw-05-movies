@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BackButton, Img, Wrapper } from './AboutMovie.style';
+import { IconContext } from 'react-icons';
+import { BiChevronsLeft } from 'react-icons/bi';
 import image from 'img/no-image.jpg';
 
 export const AboutMovie = ({ movie }) => {
@@ -13,7 +15,12 @@ export const AboutMovie = ({ movie }) => {
   return (
     <>
       <Link to={backLocation.current}>
-        <BackButton>Go back</BackButton>
+        <BackButton>
+          <IconContext.Provider value={{ size: 30, color: '#e31e28' }}>
+            <BiChevronsLeft />
+          </IconContext.Provider>
+          <span>Go back</span>
+        </BackButton>
       </Link>
       <Wrapper>
         {movie.poster_path ? (

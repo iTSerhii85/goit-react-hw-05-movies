@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 export const BackButton = styled.div`
   margin-top: 10px;
   margin-left: 18px;
-  display: inline-block;
+  width: fit-content;
   padding: 7px 20px;
   border-radius: 4px;
   background-color: blue;
@@ -27,6 +27,16 @@ export const BackButton = styled.div`
   font-size: medium;
   font-weight: bolder;
   box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const Img = styled.img`
