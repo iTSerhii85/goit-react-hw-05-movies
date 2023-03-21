@@ -43,6 +43,9 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+  @media screen and (min-width: 1280px) {
     width: fit-content;
   }
 `;
