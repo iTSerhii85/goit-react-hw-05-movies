@@ -3,6 +3,7 @@ import { SearchForm } from 'components/searchForm/SearchForm';
 import { getMovies } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Loader } from 'components/loader/Loader';
 
 const MoviesPage = () => {
   const [inputValue, setInputValue] = useSearchParams('');
@@ -10,30 +11,38 @@ const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [fetched, setFetched] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const updateQueryString = evt => {
     const nextParams = evt !== '' ? { query: evt } : {};
     setInputValue(nextParams);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
     if (searchValue === '') {
       return;
     }
-    if (fetched && totalPages >= currentPage) {
+
+    if (currentPage === 1) {
+      window.scrollTo(0, 0);
       setLoading(true);
       getMovies(searchValue.trim(), currentPage)
         .then(data => {
-          setSearchMovies(prevState => [...prevState, ...data.results]);
+          setSearchMovies(data.results);
           setTotalPages(data.total_pages);
         })
-        .then(setCurrentPage(prevState => prevState + 1))
-        .finally(setFetched(false));
+        .then(setLoading(false));
+    }
+
+    if (totalPages >= currentPage) {
+      setLoading(true);
+      getMovies(searchValue.trim(), currentPage).then(data => {
+        setSearchMovies(prevState => [...prevState, ...data.results]);
+      });
       setLoading(false);
     }
-  }, [currentPage, fetched, searchValue, totalPages]);
+  }, [currentPage, searchValue, totalPages]);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -49,14 +58,14 @@ const MoviesPage = () => {
         (e.target.documentElement.scrollTop + window.innerHeight) <
       50
     ) {
-      setFetched(true);
+      setCurrentPage(prevState => prevState + 1);
     }
   };
 
   return (
     <main>
       <SearchForm onSubmit={updateQueryString} placeholder={searchValue} />
-      {loading && <div>Loading...</div>}
+      {loading && <Loader />}
       {searchMovies !== '' && <MovieList movies={searchMovies} url={''} />}
     </main>
   );
