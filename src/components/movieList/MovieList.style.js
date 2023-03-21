@@ -6,6 +6,7 @@ export const Ul = styled.ul`
   gap: 25px;
   align-items: center;
   justify-content: center;
+  padding: 0;
 `;
 
 export const Card = styled.li`

@@ -27,11 +27,11 @@ export const AboutMovie = ({ movie }) => {
           <Img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
-            width={300}
+            width={230}
             height={350}
           />
         ) : (
-          <img src={image} alt={movie.title} width={300} height={350} />
+          <Img src={image} alt={movie.title} width={230} height={350} />
         )}
         <div>
           <h1>

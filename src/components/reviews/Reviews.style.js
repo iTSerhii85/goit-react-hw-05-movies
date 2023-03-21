@@ -11,4 +11,7 @@ export const Ul = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 `;

@@ -40,4 +40,8 @@ a {
 li {
   list-style: none;
 }
+
+ul {
+  padding: 0;
+}
 `;

@@ -7,13 +7,13 @@ export const Form = styled.form`
   @media screen and (min-width: 768px) {
     position: fixed;
     top: 10px;
-    left: 50%;
-    transform: translateX(-30%);
+    left: 25%;
+    /* transform: translateX(-60%); */
     z-index: 1000;
   }
 
   @media screen and (min-width: 1280px) {
-    transform: translateX(-30%);
+    left: 20%;
   }
 `;
 
@@ -33,7 +33,7 @@ export const Input = styled.input`
   width: 50%;
   font-size: 18px;
   font-weight: normal;
-  padding: 4px 10px;
+  padding: 4px 5px;
   border: 0;
   border-bottom: 3px solid gray;
   outline: 0;
@@ -43,9 +43,10 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    width: 50%;
+    width: fit-content;
   }
   @media screen and (min-width: 1280px) {
     width: fit-content;
+    padding: 4px 10px;
   }
 `;

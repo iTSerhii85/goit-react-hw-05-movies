@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     padding: 15px;
@@ -18,7 +20,9 @@ export const Wrapper = styled.div`
 
 export const BackButton = styled.div`
   margin-top: 10px;
-  margin-left: 18px;
+  margin-left: 10px;
+  margin-top: -25px;
+  margin-bottom: 20px;
   width: fit-content;
   padding: 7px 20px;
   border-radius: 4px;
@@ -36,6 +40,12 @@ export const BackButton = styled.div`
   }
   &:active {
     transform: scale(1);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `;
 

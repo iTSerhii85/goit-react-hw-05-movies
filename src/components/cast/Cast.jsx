@@ -30,11 +30,11 @@ const Cast = () => {
                 <img
                   src={`${IMG_URL}${actor.profile_path}`}
                   alt={actor.name}
-                  width={180}
-                  height={250}
+                  width={160}
+                  height={210}
                 />
               ) : (
-                <img src={image} alt={actor.name} width={180} height={250} />
+                <img src={image} alt={actor.name} width={160} height={210} />
               )}
               <h4>{actor.name}</h4>
             </Card>

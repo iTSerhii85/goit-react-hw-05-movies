@@ -17,7 +17,7 @@ export const Header = styled.header`
 export const Nav = styled.nav`
   display: flex;
   gap: 30px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   font-size: larger;
   font-weight: bolder;
 `;
@@ -37,6 +37,8 @@ export const Footer = styled.footer`
 export const Container = styled.div`
   width: 100%;
   margin: 0;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 480px) {
     width: 480px;
@@ -51,7 +53,7 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 1280px;
+    width: 1440px;
     padding-left: 20px;
     padding-right: 20px;
   }
