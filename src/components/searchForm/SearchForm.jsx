@@ -23,6 +23,7 @@ export const SearchForm = ({ onSubmit, placeholder }) => {
       });
     }
     onSubmit(searchInputValue);
+    setSearchInputValue('');
   };
 
   return (
