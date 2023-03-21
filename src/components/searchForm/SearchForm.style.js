@@ -30,6 +30,7 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
+  width: 50%;
   font-size: 18px;
   font-weight: normal;
   padding: 4px 10px;
@@ -39,5 +40,9 @@ export const Input = styled.input`
 
   &:focus {
     border-bottom: 3px solid blue;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: fit-content;
   }
 `;
