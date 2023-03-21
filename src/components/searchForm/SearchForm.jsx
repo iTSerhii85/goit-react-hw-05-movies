@@ -22,7 +22,7 @@ export const SearchForm = ({ onSubmit, placeholder }) => {
         theme: 'dark',
       });
     }
-    onSubmit(searchInputValue);
+    onSubmit(searchInputValue.toLowerCase());
     setSearchInputValue('');
   };
 
